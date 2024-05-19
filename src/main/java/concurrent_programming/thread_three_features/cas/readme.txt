@@ -1,0 +1,1 @@
+java中基于Unsafe的类提供了对CAS的操作方法, JVM会帮助我们将方法实现为CAS汇编指令
