@@ -38,5 +38,9 @@ public class App_1 {
         Thread.sleep(2000);
         System.out.println("主线程休眠2S, 然后释放锁.");
         lock.unlock();
+
+        //awaitNanos & sinalAll
+        condition.awaitNanos(1000); // await，到了时间自动唤醒，注意唤醒之后是要进AQS队列
+        condition.signalAll(); //源码是从condition 单链中，从前往后唤醒所有挂起的节点
     }
 }
