@@ -28,7 +28,7 @@ public class App_1 {
                 },
                 new MyRejectedExecution()
         );
-
+        threadPool.allowCoreThreadTimeOut(true); //允许核心线程池过期
         //2. 让线程池处理任务,没返回结果
         threadPool.execute(() -> {
             System.out.println("没有返回结果的任务");
