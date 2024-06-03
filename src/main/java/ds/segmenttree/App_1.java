@@ -1,4 +1,4 @@
-package msb_algorithm.segmenttree;
+package ds.segmenttree;
 
 public class App_1 {
 
