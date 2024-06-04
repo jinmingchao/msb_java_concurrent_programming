@@ -10,7 +10,5 @@ public class App_2 {
         int RUNNABLE = -1 << COUNT_BITS;
         ctl = RUNNABLE | 0;
         System.out.println("ctl: " + ctl);
-
-
     }
 }

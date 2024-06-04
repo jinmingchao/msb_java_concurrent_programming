@@ -6,8 +6,8 @@ public class RBNode<K extends Comparable<K>, V> {
         return new Builder();
     }
 
-    private K key;
-    private V value;
+    public K key;
+    public V value;
 
     public RBNode parent; //父
     public RBNode left;
@@ -18,8 +18,8 @@ public class RBNode<K extends Comparable<K>, V> {
      */
     public int depth;
 
-    private static final boolean RED = false;
-    private static final boolean BLACK = true;
+    public static final boolean RED = false;
+    public static final boolean BLACK = true;
 
     /**
      *  节点是否为根节点
@@ -69,6 +69,9 @@ public class RBNode<K extends Comparable<K>, V> {
 
     }
 
+
+
+
     /**
      * 生成一颗bst如下图
      *           rn
@@ -91,37 +94,53 @@ public class RBNode<K extends Comparable<K>, V> {
 
         rn.left = a;
         rn.right = b;
+        a.parent = rn;
+        b.parent = rn;
+
         a.left = c;
         a.right = d;
+        c.parent = a;
+        d.parent = a;
+
         c.left = e;
+        e.parent = c;
+
         return rn;
     }
 
     /**
      * 生成一颗bst如下图
-     *           rn
+     *           rn(5)
      *         /   \
-     *        a     b
+     *        a(2)   b (10)
      *             / \
-     *            c   d
+     *         (9) c   d (11)
      *           /
-     *         e
+     *       (8)e
      * @return rn节点
      */
     static public RBNode buildRnForLeftRotation(){
 
-        RBNode rn = RBNode.builder().depth(1).key("rn").build();
-        RBNode a = RBNode.builder().depth(2).key("a").build();
-        RBNode b = RBNode.builder().depth(2).key("b").build();
-        RBNode c = RBNode.builder().depth(3).key("c").build();
-        RBNode d = RBNode.builder().depth(3).key("d").build();
-        RBNode e = RBNode.builder().depth(4).key("e").build();
+        RBNode rn = RBNode.builder().depth(1).key(5).build();
+        RBNode a = RBNode.builder().depth(2).key(2).build();
+        RBNode b = RBNode.builder().depth(2).key(10).build();
+        RBNode c = RBNode.builder().depth(3).key(9).build();
+        RBNode d = RBNode.builder().depth(3).key(11).build();
+        RBNode e = RBNode.builder().depth(4).key(8).build();
 
         rn.left = a;
         rn.right = b;
+        a.parent = rn;
+        b.parent = rn;
+
         b.left = c;
         b.right = d;
+        c.parent = b;
+        d.parent = b;
+
         c.left = e;
+        e.parent = c;
+
         return rn;
     }
     public K getKey() {
