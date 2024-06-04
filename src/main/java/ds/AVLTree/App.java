@@ -1,4 +1,4 @@
-package msb_algorithm.algorithem.AVLTree;
+package ds.AVLTree;
 
 public class App {
 

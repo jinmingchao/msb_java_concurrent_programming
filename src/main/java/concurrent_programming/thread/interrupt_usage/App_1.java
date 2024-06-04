@@ -13,9 +13,9 @@ public class App_1 {
     public static void main(String[] args) throws InterruptedException {
         // 线程默认情况下, interrupt 标记位: false;
         System.out.println("1:" + Thread.currentThread().isInterrupted());
-        // 执行interrupt之后, 再次查看标志位
+        // 执行interrupt打断线程
         Thread.currentThread().interrupt();
-        // 由于被打断, interrupt标志位改为: true
+        // 再次查看标志位, 由于被打断, interrupt标志位改为: true
         System.out.println("2:" + Thread.currentThread().isInterrupted());
         // 归位interrupt标记 为 false, 返回true，说明归位成功
         System.out.println("3:" + Thread.interrupted());
