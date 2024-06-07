@@ -3,6 +3,7 @@ package ds.RedBlackTree;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 红黑树操作:
@@ -33,6 +34,8 @@ public class App {
      * 左旋rn
      */
     public static RBNode leftRotate(RBNode rn) {
+        ConcurrentHashMap<Integer, Integer> c = new ConcurrentHashMap<>();
+        c.put()
         if (rn != null) {
             //一. 如果 rn.right.left不为空, 左旋之后，rn.right.left会成为原先rn的右节点
             RBNode r = rn.right;

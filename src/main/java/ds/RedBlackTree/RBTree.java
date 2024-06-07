@@ -56,14 +56,30 @@ public class RBTree<K extends Comparable<K>, V> {
         } while (n != null);
         // 跳出循环了，说明找到了要插入的位置
         // 创建节点
-        RBNode<K,V> addedNode = RBNode.builder().key(key).value(value).parent(_parent).build();
+        RBNode<K,V> e = RBNode.builder().key(key).value(value).parent(_parent).build();
         // 判断addedNode是_parent的左节点还有右节点
         if (i < 0) {
-            _parent.left = addedNode;
+            _parent.left = e;
         } else if(i > 0) {
-            _parent.right = addedNode;
+            _parent.right = e;
         }
         //二. 调整平衡, 旋转, 变色
+        fixAfterPut(e);
+
+    }
+
+    /**
+     * 调整节点平衡
+     * 分析各种情况
+     *   1.  234树: 在2节点上插入一个节点，插入完成后变成一个3节点
+     *       红黑树: 给一个叶子节点(黑节点)(因为是普通的根据BST性质的插入，所以一定插在根上)上插一个节点
+     *              不需要进行处理(为啥不变黑？)
+     *   2.  234树: 在一个3节点上插入一个节点，插入完成后变成一个4节点，会有三个元素
+     *             3节点的结构有6种，其中【根左左，根左右，根右左，根右右】的结构在插入后需要调整, 剩下【左根右】两种结构不需要变化
+     *
+     * @param e
+     */
+    private void fixAfterPut(RBNode<K,V> e) {
 
     }
 }
