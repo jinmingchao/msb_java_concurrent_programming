@@ -39,7 +39,8 @@ class WorkThread implements Runnable {
         }
         try {
             System.out.println("WorkThread " + threadName + " wake up.");
-            cb.await();
+            int a = cb.await();
+            System.out.println("WorkThread " + threadName + " arrive at " + a+".");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (BrokenBarrierException e) {
