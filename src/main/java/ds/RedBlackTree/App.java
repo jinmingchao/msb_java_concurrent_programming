@@ -35,7 +35,7 @@ public class App {
      */
     public static RBNode leftRotate(RBNode rn) {
         ConcurrentHashMap<Integer, Integer> c = new ConcurrentHashMap<>();
-        c.put()
+//        c.put()
         if (rn != null) {
             //一. 如果 rn.right.left不为空, 左旋之后，rn.right.left会成为原先rn的右节点
             RBNode r = rn.right;

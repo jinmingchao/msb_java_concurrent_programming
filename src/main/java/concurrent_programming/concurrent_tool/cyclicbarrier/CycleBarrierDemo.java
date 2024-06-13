@@ -13,6 +13,7 @@ public class CycleBarrierDemo {
         for (int i = 0; i < cnt; i++) {
             new Thread(new WorkThread(cb, String.valueOf(i))).start();
         }
+        cb.reset();//cb还可以重置，然后重新尝试拦截cnt数量的线程
     }
 
 }
